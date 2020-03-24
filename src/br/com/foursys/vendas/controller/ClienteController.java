@@ -368,18 +368,20 @@ public class ClienteController {
             return false;
         }
 
-        if (Valida.vazio(this.viewCliente.getJtfCep().getText())) {
-            JOptionPane.showMessageDialog(null, Mensagem.informaCep);
-            this.viewCliente.getJtfCep().setValue(null);
-            this.viewCliente.getJtfCep().grabFocus();
-            return false;
-        }
+     
 
         if (Valida.testaZero(this.viewCliente.getJcbEstado().getSelectedIndex())) {
             JOptionPane.showMessageDialog(null, Mensagem.informaEstado);
             return false;
         }
-
+        
+           if (Valida.vazio(this.viewCliente.getJtfCep().getText())) {
+            JOptionPane.showMessageDialog(null, Mensagem.informaCep);
+            this.viewCliente.getJtfCep().setValue(null);
+            this.viewCliente.getJtfCep().grabFocus();
+            return false;
+        }
+           
         if (!Valida.vazio(this.viewCliente.getJtfEmail().getText())) {
             if (!Valida.email(this.viewCliente.getJtfEmail().getText())) {
                 JOptionPane.showMessageDialog(null, Mensagem.informaEmailValido);

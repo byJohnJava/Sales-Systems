@@ -44,9 +44,25 @@ public class BaixaContasPagarPrincipal extends javax.swing.JFrame {
             new String [] {
                 "Funcionário", "Fornecedor", "Número da Compra", "Valor Total", "Data de Vencimento"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabelaContasPagar.setToolTipText("");
+        tabelaContasPagar.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaContasPagar);
+        if (tabelaContasPagar.getColumnModel().getColumnCount() > 0) {
+            tabelaContasPagar.getColumnModel().getColumn(0).setResizable(false);
+            tabelaContasPagar.getColumnModel().getColumn(1).setResizable(false);
+            tabelaContasPagar.getColumnModel().getColumn(2).setResizable(false);
+            tabelaContasPagar.getColumnModel().getColumn(3).setResizable(false);
+            tabelaContasPagar.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);

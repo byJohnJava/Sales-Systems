@@ -108,8 +108,22 @@ public class FuncionarioPrincipal extends javax.swing.JFrame {
             new String [] {
                 "Nome", "Cidade", "Telefone", "Celular"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tabelaFuncionario);
+        if (tabelaFuncionario.getColumnModel().getColumnCount() > 0) {
+            tabelaFuncionario.getColumnModel().getColumn(0).setResizable(false);
+            tabelaFuncionario.getColumnModel().getColumn(1).setResizable(false);
+            tabelaFuncionario.getColumnModel().getColumn(2).setResizable(false);
+            tabelaFuncionario.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 

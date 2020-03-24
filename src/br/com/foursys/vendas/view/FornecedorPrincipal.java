@@ -104,8 +104,23 @@ public class FornecedorPrincipal extends javax.swing.JFrame {
             new String [] {
                 "Razão Social", "Telefone", "Contato", "Cidade"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelaFornecedor.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaFornecedor);
+        if (tabelaFornecedor.getColumnModel().getColumnCount() > 0) {
+            tabelaFornecedor.getColumnModel().getColumn(0).setResizable(false);
+            tabelaFornecedor.getColumnModel().getColumn(1).setResizable(false);
+            tabelaFornecedor.getColumnModel().getColumn(2).setResizable(false);
+            tabelaFornecedor.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -297,9 +312,7 @@ public class FornecedorPrincipal extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel31)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel29)
-                                .addGap(1, 1, 1))))
+                            .addComponent(jLabel29)))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()

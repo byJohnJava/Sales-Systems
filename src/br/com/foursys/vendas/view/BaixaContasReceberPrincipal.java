@@ -59,9 +59,25 @@ public class BaixaContasReceberPrincipal extends javax.swing.JFrame {
             new String [] {
                 "Cliente", "Funcionário", "Número da Venda", "Valor Total", "Data de Vencimento"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabelaContasReceber.setToolTipText("");
+        tabelaContasReceber.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaContasReceber);
+        if (tabelaContasReceber.getColumnModel().getColumnCount() > 0) {
+            tabelaContasReceber.getColumnModel().getColumn(0).setResizable(false);
+            tabelaContasReceber.getColumnModel().getColumn(1).setResizable(false);
+            tabelaContasReceber.getColumnModel().getColumn(2).setResizable(false);
+            tabelaContasReceber.getColumnModel().getColumn(3).setResizable(false);
+            tabelaContasReceber.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);

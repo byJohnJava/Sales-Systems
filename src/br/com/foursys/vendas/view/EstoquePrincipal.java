@@ -110,8 +110,23 @@ public class EstoquePrincipal extends javax.swing.JFrame {
             new String [] {
                 "Produto", "Fornecedor", "Quantidade de Estoque", "Quantidade Minima"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelaEstoque.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaEstoque);
+        if (tabelaEstoque.getColumnModel().getColumnCount() > 0) {
+            tabelaEstoque.getColumnModel().getColumn(0).setResizable(false);
+            tabelaEstoque.getColumnModel().getColumn(1).setResizable(false);
+            tabelaEstoque.getColumnModel().getColumn(2).setResizable(false);
+            tabelaEstoque.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jPanel6.setBackground(new java.awt.Color(204, 204, 204));
         jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 204, 204), null, new java.awt.Color(204, 204, 204)));

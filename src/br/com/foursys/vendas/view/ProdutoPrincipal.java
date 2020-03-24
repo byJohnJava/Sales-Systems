@@ -177,8 +177,23 @@ public class ProdutoPrincipal extends javax.swing.JFrame {
             new String [] {
                 "Descrição", "Fornecedor", "Valor de Custo", "Valor de Venda"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelaProduto.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaProduto);
+        if (tabelaProduto.getColumnModel().getColumnCount() > 0) {
+            tabelaProduto.getColumnModel().getColumn(0).setResizable(false);
+            tabelaProduto.getColumnModel().getColumn(1).setResizable(false);
+            tabelaProduto.getColumnModel().getColumn(2).setResizable(false);
+            tabelaProduto.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jPanel6.setBackground(new java.awt.Color(204, 204, 204));
         jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 204, 204), null, new java.awt.Color(204, 204, 204)));

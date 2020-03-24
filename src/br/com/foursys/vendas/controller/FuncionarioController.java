@@ -200,20 +200,6 @@ public class FuncionarioController {
             return false;
         }
 
-        if (Valida.vazio(this.viewFuncionario.getJtfDataNascimento().getText())) {
-            JOptionPane.showMessageDialog(null, Mensagem.informaDataNascimento);
-            this.viewFuncionario.getJtfDataNascimento().setValue(null);
-            this.viewFuncionario.getJtfDataNascimento().grabFocus();
-            return false;
-        }
-
-        if (!Valida.data(this.viewFuncionario.getJtfDataNascimento().getText())) {
-            JOptionPane.showMessageDialog(null, Mensagem.informaDataValida);
-            this.viewFuncionario.getJtfDataNascimento().setValue(null);
-            this.viewFuncionario.getJtfDataNascimento().grabFocus();
-            return false;
-        }
-
         if (Valida.vazio(this.viewFuncionario.getJtfNome().getText())) {
             JOptionPane.showMessageDialog(null, Mensagem.informaNome);
             this.viewFuncionario.getJtfNome().setText(null);
@@ -225,6 +211,20 @@ public class FuncionarioController {
             JOptionPane.showMessageDialog(null, Mensagem.informaNomeValido);
             this.viewFuncionario.getJtfNome().setText(null);
             this.viewFuncionario.getJtfNome().grabFocus();
+            return false;
+        }
+
+        if (Valida.vazio(this.viewFuncionario.getJtfDataNascimento().getText())) {
+            JOptionPane.showMessageDialog(null, Mensagem.informaDataNascimento);
+            this.viewFuncionario.getJtfDataNascimento().setValue(null);
+            this.viewFuncionario.getJtfDataNascimento().grabFocus();
+            return false;
+        }
+
+        if (!Valida.data(this.viewFuncionario.getJtfDataNascimento().getText())) {
+            JOptionPane.showMessageDialog(null, Mensagem.informaDataValida);
+            this.viewFuncionario.getJtfDataNascimento().setValue(null);
+            this.viewFuncionario.getJtfDataNascimento().grabFocus();
             return false;
         }
 
@@ -254,15 +254,15 @@ public class FuncionarioController {
             return false;
         }
 
+        if (Valida.testaZero(this.viewFuncionario.getJcbEstado().getSelectedIndex())) {
+            JOptionPane.showMessageDialog(null, Mensagem.informaEstado);
+            return false;
+        }
+
         if (Valida.vazio(this.viewFuncionario.getJtfCep().getText())) {
             JOptionPane.showMessageDialog(null, Mensagem.informaCep);
             this.viewFuncionario.getJtfCep().setValue(null);
             this.viewFuncionario.getJtfCep().grabFocus();
-            return false;
-        }
-
-        if (Valida.testaZero(this.viewFuncionario.getJcbEstado().getSelectedIndex())) {
-            JOptionPane.showMessageDialog(null, Mensagem.informaEstado);
             return false;
         }
 
