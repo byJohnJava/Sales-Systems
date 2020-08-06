@@ -1,5 +1,5 @@
-### Sales-Systems
+# Sales-Systems
 
-# Technologies used:
+### Technologies used:
 - Java Swing
 - JDBC
